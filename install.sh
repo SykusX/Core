@@ -52,4 +52,8 @@ fi
 
 pacman -Syu
 
-pacman -S git python python-pip
+pacman -S git python python-pip archiso
+
+mkdir -p /tmp/sykusx/repo
+
+git clone git@github.com:SykusX/Core /tmp/sykusx/repo
