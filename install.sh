@@ -52,8 +52,43 @@ fi
 
 pacman -Syu
 
-pacman -S git python python-pip archiso
+pacman -S git python python-pip archiso dnsmasq syslinux
 
 mkdir -p /tmp/sykusx/repo
 
 git clone git@github.com:SykusX/Core /tmp/sykusx/repo
+
+mkdir -p /opt/sykusx/build
+cp  -R /tmp/sykusx/repo/build/* /opt/sykusx/build
+echo "Build system installed."
+
+ip addr
+
+read -r -p "Please specify the LAN network interface: " lan
+read -r -p "Please specify the WAN network interface: " wan
+
+mkdir -p /opt/sykusx/tftp
+
+cp /lib64/syslinux/bios/lpxelinux.0 /opt/sykusx/tftp
+
+echo "user=root
+group=root
+port=0
+interface=$lan
+bind-interfaces
+dhcp-rage=10.42.1.2,10.42.255.255,12h
+dhcp-boot=lpxelinux.0
+enable-tftp
+tftp-secure
+tftp-root=/opt/sykux/tftp" > /etc/dnsmasq.conf
+
+mkdir -p /opt/sykusx/tftp/pxelinux.cfg
+cp /tmp/sykusx/repo/cfg/pxelinux/* /opt/sykusx/tftp/pxelinux.cfg/
+
+echo "PXE installed."
+
+useradd -G wheel -m sykusx
+
+echo "Please enable the wheel group in /etc/sudoers using visudo and add the following line:"
+echo "sykusx ALL=NOPASSWD: /opt/sykusx/build/archimg/build.sh"
+echo "Install finished. Run /opt/sykusx/build/build.sh to initiate build and deploy images."

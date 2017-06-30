@@ -4,6 +4,10 @@ timestamp() {
 	date +"%F %T"
 }
 
+if [ ! $(pwd) = "/opt/sykusx/build" ]; then
+	cd /opt/sykusx/build
+fi
+
 echo "Starting to build system!" | xargs -L1  echo "$(timestamp)" | tee -a /var/log/sykusx/sykusx-build/isobuild.log
 
 echo "Cleaning buildpath." | xargs -L1 echo "$(timestamp)" | tee -a /var/log/sykusx/sykusx-build/isobuild.log
