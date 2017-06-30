@@ -1,2 +1,2 @@
-DEFAULT bzImage3
-#APPEND rw ip=10.42.1.2:10.42.1.1:10.42.1.1:255.255.255.0:rambox:eth0:off shell
+DEFAULT sykusx-kernel
+APPEND rw shell
