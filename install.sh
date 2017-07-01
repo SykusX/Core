@@ -89,6 +89,7 @@ echo "PXE installed."
 
 useradd -G wheel -m sykusx
 
+chown -R sykusx:sykusx /opt/sykusx
 echo "Please enable the wheel group in /etc/sudoers using visudo and add the following line:"
 echo "sykusx ALL=NOPASSWD: /opt/sykusx/build/archimg/build.sh"
 echo "Install finished. Run /opt/sykusx/build/build.sh to initiate build and deploy images."
