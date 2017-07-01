@@ -52,7 +52,7 @@ fi
 
 pacman -Syu
 
-pacman -S git python python-pip archiso dnsmasq syslinux
+pacman -S git openssh python python-pip archiso dnsmasq syslinux
 
 mkdir -p /tmp/sykusx/repo
 
