@@ -40,7 +40,7 @@ cat << EOF
 
 
 This program will install the SykusX Core Server on this machine.
-It is intended for use on a freshly installed Arch Linux Distribution.
+It is intended for use on a freshly installed CentOS Distribution.
 Two network adapters are required.
 
 EOF
@@ -50,9 +50,12 @@ if [ ! $yn = "y" ]; then
 	exit
 fi
 
-pacman -Syu
+yum -y update
 
-pacman -S git openssh python python-pip archiso dnsmasq syslinux
+yum -y install git openssh yum-utils dnsmasq syslinux
+yum -y groupinstall development
+yum -y install https://centos7.iuscommunity.org/ius-release.rpm
+yum -y install python36u
 
 mkdir -p /tmp/sykusx/repo
 
