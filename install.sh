@@ -56,7 +56,7 @@ pacman -S git openssh python python-pip archiso dnsmasq syslinux
 
 mkdir -p /tmp/sykusx/repo
 
-git clone git@github.com:SykusX/Core /tmp/sykusx/repo
+git clone https://github.com/SykusX/Core.git /tmp/sykusx/repo
 
 mkdir -p /opt/sykusx/build
 cp  -R /tmp/sykusx/repo/build/* /opt/sykusx/build
