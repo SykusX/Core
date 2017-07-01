@@ -76,7 +76,7 @@ group=root
 port=0
 interface=$lan
 bind-interfaces
-dhcp-rage=10.42.1.2,10.42.255.255,12h
+dhcp-range=10.42.1.2,10.42.255.255,12h
 dhcp-boot=lpxelinux.0
 enable-tftp
 tftp-secure
