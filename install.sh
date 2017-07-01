@@ -54,6 +54,8 @@ pacman -Syu
 
 pacman -S git openssh python python-pip archiso dnsmasq syslinux
 
+pip install django django-filter simplejson pyyaml slumber
+
 mkdir -p /tmp/sykusx/repo
 
 git clone https://github.com/SykusX/Core.git /tmp/sykusx/repo
